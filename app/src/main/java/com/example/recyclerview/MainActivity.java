@@ -1,6 +1,8 @@
 package com.example.recyclerview;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
@@ -8,6 +10,8 @@ import java.util.LinkedList;
 
 public class MainActivity extends AppCompatActivity {
     LinkedList<String> listaZakupow =new LinkedList<>();
+    RecyclerView recyclerView;
+    ZakupyAdapter adapter;
 
     private void przygotujListe(){
         listaZakupow.addLast("mleko");
@@ -35,5 +39,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         przygotujListe();
+        recyclerView = findViewById(R.id.recyclerView);
+        adapter = new ZakupyAdapter(this,listaZakupow);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
     }
 }
