@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.LinkedList;
 
@@ -43,6 +45,12 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ZakupyAdapter(this,listaZakupow);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+        Button button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adapter.usunZaznaczoneElementy();
+            }
+        });
     }
 }

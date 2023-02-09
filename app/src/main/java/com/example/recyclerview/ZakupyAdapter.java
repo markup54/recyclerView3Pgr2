@@ -42,16 +42,17 @@ public class ZakupyAdapter extends RecyclerView.Adapter<ZakupyAdapter.ProduktVie
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView,
                                                  boolean isChecked) {
+                        //TODO: nadmierne zaznaczanie
                         if(isChecked){
-                            buttonView.setPaintFlags(
-                                    buttonView.getPaintFlags() |
+                            holder.itemProductView.setPaintFlags(
+                                    holder.itemProductView.getPaintFlags() |
                                             Paint.STRIKE_THRU_TEXT_FLAG
                             );
 
                         }
                         else{
-                            buttonView.setPaintFlags(
-                                    buttonView.getPaintFlags() &
+                            holder.itemProductView.setPaintFlags(
+                                    holder.itemProductView.getPaintFlags() &
                                             ~Paint.STRIKE_THRU_TEXT_FLAG
                             );
                         }
@@ -64,6 +65,12 @@ public class ZakupyAdapter extends RecyclerView.Adapter<ZakupyAdapter.ProduktVie
     @Override
     public int getItemCount() {
         return produkty.size();
+    }
+
+    public void usunZaznaczoneElementy(){
+        produkty.removeIf(x->x.isZaznaczone());
+        //TODO: zaktualizować wyświetlanie
+        notifyDataSetChanged();
     }
 
     public class ProduktViewHolder  extends RecyclerView.ViewHolder implements View.OnClickListener{
