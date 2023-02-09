@@ -9,29 +9,29 @@ import android.os.Bundle;
 import java.util.LinkedList;
 
 public class MainActivity extends AppCompatActivity {
-    LinkedList<String> listaZakupow =new LinkedList<>();
+    LinkedList<Produkt> listaZakupow =new LinkedList<>();
     RecyclerView recyclerView;
     ZakupyAdapter adapter;
 
     private void przygotujListe(){
-        listaZakupow.addLast("mleko");
-        listaZakupow.addLast("masło");
-        listaZakupow.addLast("śmietana");
-        listaZakupow.addLast("chleb");
-        listaZakupow.addLast("bułki");
-        listaZakupow.addLast("woda");
-        listaZakupow.addLast("sok");
-        listaZakupow.addLast("ser");
-        listaZakupow.addLast("indyk");
-        listaZakupow.addLast("jaja");
-        listaZakupow.addLast("ryż");
-        listaZakupow.addLast("mąka");
-        listaZakupow.addLast("sól");
-        listaZakupow.addLast("jabłka");
-        listaZakupow.addLast("śliwki");
-        listaZakupow.addLast("marchewki");
-        listaZakupow.addLast("pietruszka");
-        listaZakupow.addLast("por");
+        listaZakupow.addLast(new Produkt("mleko"));
+        listaZakupow.addLast(new Produkt("masło"));
+        listaZakupow.addLast(new Produkt("śmietana"));
+        listaZakupow.addLast(new Produkt("chleb"));
+        listaZakupow.addLast(new Produkt("bułki"));
+        listaZakupow.addLast(new Produkt("woda"));
+        listaZakupow.addLast(new Produkt("sok"));
+        listaZakupow.addLast(new Produkt("ser"));
+        listaZakupow.addLast(new Produkt("indyk"));
+        listaZakupow.addLast(new Produkt("jaja"));
+        listaZakupow.addLast(new Produkt("ryż"));
+        listaZakupow.addLast(new Produkt("mąka"));
+        listaZakupow.addLast(new Produkt("sól"));
+        listaZakupow.addLast(new Produkt("jabłka"));
+        listaZakupow.addLast(new Produkt("śliwki"));
+        listaZakupow.addLast(new Produkt("marchewki"));
+        listaZakupow.addLast(new Produkt("pietruszka"));
+        listaZakupow.addLast(new Produkt("por"));
     }
 
     @Override

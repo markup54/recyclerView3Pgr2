@@ -18,9 +18,9 @@ import java.util.LinkedList;
 public class ZakupyAdapter extends RecyclerView.Adapter<ZakupyAdapter.ProduktViewHolder> {
 
     private LayoutInflater inflater;
-    private final LinkedList<String> produkty ;
+    private final LinkedList<Produkt> produkty ;
 
-    public ZakupyAdapter(Context context,LinkedList<String> produkty) {
+    public ZakupyAdapter(Context context,LinkedList<Produkt> produkty) {
         inflater = LayoutInflater.from(context);
         this.produkty = produkty;
 
@@ -36,7 +36,7 @@ public class ZakupyAdapter extends RecyclerView.Adapter<ZakupyAdapter.ProduktVie
 
     @Override
     public void onBindViewHolder(@NonNull ProduktViewHolder holder, int position) {
-        holder.itemProductView.setText(produkty.get(position));
+        holder.itemProductView.setText(produkty.get(position).getNazwa());
         holder.itemProductView.setOnCheckedChangeListener(
                 new CompoundButton.OnCheckedChangeListener() {
                     @Override
@@ -47,6 +47,7 @@ public class ZakupyAdapter extends RecyclerView.Adapter<ZakupyAdapter.ProduktVie
                                     buttonView.getPaintFlags() |
                                             Paint.STRIKE_THRU_TEXT_FLAG
                             );
+
                         }
                         else{
                             buttonView.setPaintFlags(
@@ -54,6 +55,7 @@ public class ZakupyAdapter extends RecyclerView.Adapter<ZakupyAdapter.ProduktVie
                                             ~Paint.STRIKE_THRU_TEXT_FLAG
                             );
                         }
+                        produkty.get(position).setZaznaczone(isChecked);
                     }
                 }
         );
@@ -79,7 +81,7 @@ public class ZakupyAdapter extends RecyclerView.Adapter<ZakupyAdapter.ProduktVie
         @Override
         public void onClick(View v) {
             int pos = getLayoutPosition();
-            String prod = produkty.get(pos);
+            String prod = produkty.get(pos).getNazwa();
             Toast.makeText(inflater.getContext(), prod, Toast.LENGTH_SHORT).show();
         }
     }
