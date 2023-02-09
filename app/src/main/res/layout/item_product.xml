@@ -4,10 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="200dp">
 
-    <TextView
-        android:id="@+id/textView"
+    <CheckBox
+        android:id="@+id/checkBox"
         android:layout_width="0dp"
         android:background="#201480"
+        android:buttonTint="@color/white"
         android:textColor="#ffaa09"
         android:textSize="40sp"
         android:layout_margin="16dp"
